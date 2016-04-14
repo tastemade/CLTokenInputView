@@ -53,6 +53,7 @@
     self.tokenInputView.placeholderText = @"Enter a name";
     self.tokenInputView.accessoryView = [self contactAddButton];
     self.tokenInputView.drawBottomBorder = YES;
+    self.tokenInputView.returnKeyType = UIReturnKeySend;
     
     self.secondTokenInputView.fieldName = NSLocalizedString(@"Cc:", nil);
     self.secondTokenInputView.drawBottomBorder = YES;
@@ -76,6 +77,12 @@
 
 
 #pragma mark - CLTokenInputViewDelegate
+
+- (BOOL)tokenInputViewShouldReturn:(CLTokenInputView *)view
+{
+    NSLog(@"Returned");
+    return YES;
+}
 
 - (void)tokenInputView:(CLTokenInputView *)view didChangeText:(NSString *)text
 {
